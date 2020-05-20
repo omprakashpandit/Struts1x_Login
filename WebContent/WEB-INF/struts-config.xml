@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+   
+   <form-beans >
+    <form-bean name="loginform" type="com.cris.form.LoginFormBackup" />
+    <form-bean name="insertform" type="com.cris.form.InsertFormBackup" />
+   </form-beans>
+   
+   
+  <!-- name="loginform" -->
+  <action-mappings >
+    <action
+     name="loginform"
+     input="/login.jsp"
+     path="/LoginAction"
+     type="com.cris.action.LoginController">
+     <!--  <forward name="dbsuccess" path="/dbsuccess.jsp"/> -->
+      <forward name="loginsuccess" path="/success.jsp"/>
+      <forward name="loginfail" path="/fail.jsp"/>
+    </action>
+   
+    <action
+     name="insertform"
+     input="/loginInsert.jsp"
+     path="/InsertAction"
+     type="com.cris.action.InsertController">
+      <forward name="dbsuccess" path="/dbsuccess.jsp"/>
+      <!-- <forward name="loginsuccess" path="/success.jsp"/>
+      <forward name="loginfail" path="/fail.jsp"/> -->
+    </action>
+    
+
+  </action-mappings>
+
+  <message-resources parameter="com.cris.common/Messages" />
+  
+ <!--  <data-sources>
+        <data-source type=”org.apache.commons.dbcp.BasicDataSource” key=”dbSource”>
+            <set-property property=”driverClassName” value=”com.mysql.jdbc.Driver” />
+            <set-property property=”url” value=”jdbc:mysql://localhost:3306/bookstore” />
+            <set-property property=”username” value=”someuser” />
+            <set-property property=”password” value=”somepassword” />
+        </data-source>
+  </data-sources> -->
+    
+</struts-config>
+
